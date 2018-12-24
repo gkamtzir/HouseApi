@@ -9,3 +9,8 @@ This repo consists of the backend codebase I'm developing for the 3rd deliverabl
 $ git clone https://github.com/gkamtzir/HouseApi.git
 $ cd HouseApi
 ```
+
+##### Install Requirements
+```
+$ pip3 install -r requirements.txt
+```
