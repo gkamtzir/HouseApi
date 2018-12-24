@@ -26,8 +26,8 @@ class PropertySupervisor(db.Model):
 class PropertySupervisorSchema(ma.Schema):
     id = fields.Integer(dump_only=True)
     name = fields.String(required=True)
-    address = fields.String(required=True)
+    address = fields.String(required=False)
     contact_number = fields.String(required=True)
     contact_name = fields.String(required=True)
     contact_email = fields.String(required=True)
-    website = fields.String(required=True)
+    website = fields.String(required=False)
