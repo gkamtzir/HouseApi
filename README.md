@@ -17,3 +17,8 @@ $ cd HouseApi
 ```
 $ pip3 install -r requirements.txt
 ```
+
+##### Run the API
+```
+$ py ./run.py
+```
