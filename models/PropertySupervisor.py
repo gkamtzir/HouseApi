@@ -17,10 +17,14 @@ class PropertySupervisor(db.Model):
     contact_email = db.Column(db.String(40), nullable=False)
     website = db.Column(db.String(30), nullable=True)
 
-    def __init__(self, name, contact_number, contact_email):
+    def __init__(self, name, address, contact_number, 
+                 contact_name, contact_email, website):
         self.name = name
+        self.address = address
         self.contact_number = contact_number
+        self.contact_name = contact_name
         self.contact_email = contact_email
+        self.website = website
 
 
 class PropertySupervisorSchema(ma.Schema):
