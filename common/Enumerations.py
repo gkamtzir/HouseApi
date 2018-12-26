@@ -1,7 +1,7 @@
 import enum
 
 
-class GlassType(enum.Enum):
+class GlassTypeEnum(enum.Enum):
     Single = 1
     Double = 2
     Triple = 3
