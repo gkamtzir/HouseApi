@@ -10,6 +10,7 @@ from resources.HeatingType import HeatingTypeResource
 from resources.Favorite import FavoriteResource
 from resources.Comment import CommentResource
 from resources.PropertyAction import PropertyActionResource
+from resources.Visit import VisitResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -20,6 +21,7 @@ api.add_resource(PropertySupervisorResource, "/PropertySupervisor")
 api.add_resource(CityResource, "/City")
 api.add_resource(DoorFrameTypeResource, "/DoorFrameType")
 api.add_resource(HeatingTypeResource, "/HeatingType")
-api.add_resource(FavoriteResource, '/Favorite')
-api.add_resource(CommentResource, '/Comment')
-api.add_resource(PropertyActionResource, '/PropertyAction')
+api.add_resource(FavoriteResource, "/Favorite")
+api.add_resource(CommentResource, "/Comment")
+api.add_resource(PropertyActionResource, "/PropertyAction")
+api.add_resource(VisitResource, "/Visit")

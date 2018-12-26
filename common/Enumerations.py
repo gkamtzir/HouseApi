@@ -17,3 +17,11 @@ class HeatingTypeEnum(enum.Enum):
 class PropertyActionEnum(enum.Enum):
     Sale = 1
     Rent = 2
+
+
+class VisitStatusEnum(enum.Enum):
+    PendingVerification = 1
+    Scheduled = 2
+    Canceled = 3
+    Completed = 4
+    Failed = 5
