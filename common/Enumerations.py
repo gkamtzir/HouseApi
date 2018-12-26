@@ -12,3 +12,8 @@ class HeatingTypeEnum(enum.Enum):
     Decentralized = 1
     Central = 2
     Other = 3
+
+
+class PropertyActionEnum(enum.Enum):
+    Sale = 1
+    Rent = 2
