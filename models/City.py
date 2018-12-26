@@ -35,4 +35,3 @@ class CitySchema(ma.Schema):
     average_temp = fields.Float(required=True)
     average_humidity = fields.Integer(required=True)
     average_precip = fields.Float(required=True)
-    
