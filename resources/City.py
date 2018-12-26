@@ -11,4 +11,4 @@ class CityResource(Resource):
         cities = City.query.all()
         cities = cities_schema\
             .dump(cities).data
-        return {'status': 'success', 'data': cities}, 200
+        return {"status": "success", "data": cities}, 200

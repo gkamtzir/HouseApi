@@ -11,4 +11,4 @@ class PropertySupervisorResource(Resource):
         property_supervisors = PropertySupervisor.query.all()
         property_supervisors = property_supervisors_schema\
             .dump(property_supervisors).data
-        return {'status': 'success', 'data': property_supervisors}, 200
+        return {"status": "success", "data": property_supervisors}, 200

@@ -8,7 +8,7 @@ db = SQLAlchemy()
 
 
 class PropertySupervisor(db.Model):
-    __tablename__ = 'property_supervisor'
+    __tablename__ = "property_supervisor"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(25), nullable=False)
     address = db.Column(db.String(40), nullable=True)

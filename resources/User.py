@@ -9,4 +9,4 @@ class UserResource(Resource):
     def get(self):
         users = User.query.all()
         users = users_schema.dump(users).data
-        return {'status': 'success', 'data': users}, 200
+        return {"status": "success", "data": users}, 200

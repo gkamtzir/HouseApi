@@ -8,7 +8,7 @@ from resources.City import CityResource
 from resources.DoorFrameType import DoorFrameTypeResource
 from resources.HeatingType import HeatingTypeResource
 
-api_bp = Blueprint('api', __name__)
+api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
 
 # Routes
