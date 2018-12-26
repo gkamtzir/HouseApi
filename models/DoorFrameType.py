@@ -2,7 +2,7 @@ from marshmallow import fields
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from marshmallow_enum import EnumField
-from common.Enumarations import GlassType
+from common.Enumerations import GlassType
 
 ma = Marshmallow()
 db = SQLAlchemy()
