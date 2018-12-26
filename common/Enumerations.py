@@ -6,3 +6,9 @@ class GlassType(enum.Enum):
     Double = 2
     Triple = 3
     Other = 4
+
+
+class HeatingTypeEnum(enum.Enum):
+    Decentralized = 1
+    Central = 2
+    Other = 3
