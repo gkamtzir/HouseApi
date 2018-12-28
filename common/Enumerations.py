@@ -25,3 +25,28 @@ class VisitStatusEnum(enum.Enum):
     Canceled = 3
     Completed = 4
     Failed = 5
+
+
+PropertyTypeEnum = enum.Enum(
+    value="PropertyTypeEnum",
+    names=[
+        ("House", 1),
+        ("Commercial Space", 2)
+    ]
+)
+
+
+EnergyCertificateEnum = enum.Enum(
+    value="EnergyCertificateEnum",
+    names=[
+        ("A+", 1),
+        ("A", 2),
+        ("B", 3),
+        ("C", 4),
+        ("D", 5),
+        ("E", 6),
+        ("F", 7),
+        ("G", 8),
+        ("H", 9)
+    ]
+)

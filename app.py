@@ -11,6 +11,7 @@ from resources.Favorite import FavoriteResource
 from resources.Comment import CommentResource
 from resources.PropertyAction import PropertyActionResource
 from resources.Visit import VisitResource
+from resources.Property import PropertyResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -25,3 +26,4 @@ api.add_resource(FavoriteResource, "/Favorite")
 api.add_resource(CommentResource, "/Comment")
 api.add_resource(PropertyActionResource, "/PropertyAction")
 api.add_resource(VisitResource, "/Visit")
+api.add_resource(PropertyResource, "/Property")
