@@ -64,7 +64,7 @@ class PropertySchema(ma.Schema):
     rooms = fields.Integer(required=False)
     longitude = fields.Float(required=True)
     latitude = fields.Float(required=True)
-    #energy_certificate = EnumField(EnergyCertificateEnum)
+    energy_certificate = EnumField(EnergyCertificateEnum)
     city_id = fields.Integer(required=True)
     supervisor_id = fields.Integer(required=True)
     heating_type_id = fields.Integer(required=True)
