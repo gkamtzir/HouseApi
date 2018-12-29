@@ -18,6 +18,9 @@ $ cd HouseApi
 $ pip3 install -r requirements.txt
 ```
 
+##### Database Configuration
+Visit [HouseDB](https://github.com/gkamtzir/HouseDB) repo, download *housedb.sql* and import it on a MariaDB server.
+
 ##### Run the API
 ```
 $ py ./run.py
