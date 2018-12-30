@@ -15,6 +15,9 @@ class PropertySupervisor(db.Model):
     contact_email = db.Column(db.String(40), nullable=False)
     website = db.Column(db.String(30), nullable=True)
 
+    # Relationships
+    properties = db.relationship("Property", backref="supervisor")
+
     def __init__(self, name, address, contact_number,
                  contact_name, contact_email, website):
         self.name = name
