@@ -1,11 +1,10 @@
 from marshmallow import fields
 from flask_marshmallow import Marshmallow
-from flask_sqlalchemy import SQLAlchemy
 from marshmallow_enum import EnumField
 from common.Enumerations import HeatingTypeEnum
+from models.Shared import db
 
 ma = Marshmallow()
-db = SQLAlchemy()
 
 
 class HeatingType(db.Model):
