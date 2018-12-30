@@ -15,6 +15,9 @@ class City(db.Model):
     average_humidity = db.Column(db.Integer, nullable=False)
     average_precip = db.Column(db.Numeric(5, 1), nullable=False)
 
+    # Relationships
+    properties = db.relationship("Property", backref="city")
+
     def __init__(self, name, country_name, population, average_temp,
                  average_humidity, average_precip):
         self.name = name

@@ -31,6 +31,9 @@ class Property(db.Model):
                               nullable=False)
     details = db.Column(db.String(150), nullable=True)
 
+    # Relationships
+    actions = db.relationship("PropertyAction", backref="property")
+
     def __init__(self, floor, postal_code, street_address, street_number,
                  property_type, size, rooms, longitude, latitude,
                  energy_certificate, city_id, supervisor_id, heating_type_id,

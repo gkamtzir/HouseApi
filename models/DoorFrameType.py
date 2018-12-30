@@ -14,6 +14,9 @@ class DoorFrameType(db.Model):
     glass_type = db.Column(db.Enum(GlassTypeEnum), nullable=False)
     screen = db.Column(db.Binary(1), nullable=False)
 
+    # Relationships
+    properties = db.relationship("Property", backref="door_frame_type")
+
     def __init__(self, name, glass_type, screen):
         self.name = name
         self.glass_type = glass_type

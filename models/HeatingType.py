@@ -13,6 +13,9 @@ class HeatingType(db.Model):
     name = db.Column(db.String(25), nullable=False)
     type = db.Column(db.Enum(HeatingTypeEnum), nullable=False)
 
+    # Relationships
+    properties = db.relationship("Property", backref="heating_type")
+
     def __init__(self, name, type):
         self.name = name
         self.type = type
