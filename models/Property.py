@@ -33,6 +33,11 @@ class Property(db.Model):
 
     # Relationships
     actions = db.relationship("PropertyAction", backref="property")
+    visitors = db.relationship("User", secondary="visit",
+                               backref=db.backref("visits", lazy="dynamic"))
+    favored_by = db.relationship("User", secondary="favorite",
+                                 backref=db.backref("properties",
+                                                    lazy="dynamic"))
 
     def __init__(self, floor, postal_code, street_address, street_number,
                  property_type, size, rooms, longitude, latitude,

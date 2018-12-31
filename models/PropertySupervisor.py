@@ -17,6 +17,9 @@ class PropertySupervisor(db.Model):
 
     # Relationships
     properties = db.relationship("Property", backref="supervisor")
+    commented_by = db.relationship("User", secondary="comment",
+                                   backref=db.backref("comments",
+                                                      lazy="dynamic"))
 
     def __init__(self, name, address, contact_number,
                  contact_name, contact_email, website):
