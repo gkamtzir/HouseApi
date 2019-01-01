@@ -5,7 +5,7 @@ from models.User import UserSchema
 users_schema = UserSchema(many=True)
 
 
-class FavoredBy(Resource):
+class FavoredByResource(Resource):
     def get(self, property_id):
         property = Property.query.filter_by(id=property_id).first()
         if property is None:
