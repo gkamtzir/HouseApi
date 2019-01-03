@@ -14,6 +14,7 @@ from resources.Visit import VisitResource
 from resources.Property import PropertyResource
 from resources.FavoredBy import FavoredByResource
 from resources.SupervisorComments import SupervisorCommentsResource
+from resources.Login import LoginResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -29,6 +30,7 @@ api.add_resource(CommentResource, "/Comment")
 api.add_resource(PropertyActionResource, "/PropertyAction")
 api.add_resource(VisitResource, "/Visit")
 api.add_resource(PropertyResource, "/Property")
-api.add_resource(FavoredByResource, '/FavoredBy/<int:property_id>')
+api.add_resource(FavoredByResource, "/FavoredBy/<int:property_id>")
 api.add_resource(SupervisorCommentsResource, 
-                 '/SupervisorComments/<int:supervisor_id>')
+                 "/SupervisorComments/<int:supervisor_id>")
+api.add_resource(LoginResource, "/Login")
