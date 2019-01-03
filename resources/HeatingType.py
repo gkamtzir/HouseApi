@@ -3,7 +3,6 @@ from models.HeatingType import HeatingType,\
     HeatingTypeSchema
 
 heating_types_schema = HeatingTypeSchema(many=True)
-heating_type_schema = HeatingTypeSchema()
 
 
 class HeatingTypeResource(Resource):

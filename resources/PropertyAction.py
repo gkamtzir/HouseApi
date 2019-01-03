@@ -3,7 +3,6 @@ from models.PropertyAction import PropertyAction,\
     PropertyActionSchema
 
 property_actions_schema = PropertyActionSchema(many=True)
-property_action_schema = PropertyActionSchema()
 
 
 class PropertyActionResource(Resource):

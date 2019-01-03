@@ -3,7 +3,6 @@ from models.Property import Property,\
     PropertySchema
 
 properties_schema = PropertySchema(many=True)
-property_schema = PropertySchema()
 
 
 class PropertyResource(Resource):

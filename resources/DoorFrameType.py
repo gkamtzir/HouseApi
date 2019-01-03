@@ -3,7 +3,6 @@ from models.DoorFrameType import DoorFrameType,\
     DoorFrameTypeSchema
 
 door_frame_types_schema = DoorFrameTypeSchema(many=True)
-door_frame_type_schema = DoorFrameTypeSchema()
 
 
 class DoorFrameTypeResource(Resource):

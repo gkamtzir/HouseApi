@@ -3,7 +3,6 @@ from models.City import City,\
     CitySchema
 
 cities_schema = CitySchema(many=True)
-city_schema = CitySchema()
 
 
 class CityResource(Resource):

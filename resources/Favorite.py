@@ -3,7 +3,6 @@ from models.Favorite import Favorite,\
     FavoriteSchema
 
 favorites_schema = FavoriteSchema(many=True)
-favorite_schema = FavoriteSchema()
 
 
 class FavoriteResource(Resource):

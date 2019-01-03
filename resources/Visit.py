@@ -3,7 +3,6 @@ from models.Visit import Visit,\
     VisitSchema
 
 visits_schema = VisitSchema(many=True)
-visit_schema = VisitSchema()
 
 
 class VisitResource(Resource):

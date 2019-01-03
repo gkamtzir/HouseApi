@@ -3,7 +3,6 @@ from models.PropertySupervisor import PropertySupervisor,\
     PropertySupervisorSchema
 
 property_supervisors_schema = PropertySupervisorSchema(many=True)
-property_supervisor_schema = PropertySupervisorSchema()
 
 
 class PropertySupervisorResource(Resource):

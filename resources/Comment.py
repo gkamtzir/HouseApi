@@ -3,7 +3,6 @@ from models.Comment import Comment,\
     CommentSchema
 
 comments_schema = CommentSchema(many=True)
-comment_schema = CommentSchema()
 
 
 class CommentResource(Resource):
