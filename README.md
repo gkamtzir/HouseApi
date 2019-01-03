@@ -21,6 +21,13 @@ $ pip3 install -r requirements.txt
 ##### Database Configuration
 Visit [HouseDB](https://github.com/gkamtzir/HouseDB) repo, download *housedb.sql* and import it on a MariaDB server.
 
+##### Code Modifications
+Rename *config.dist.py* file to *config.py* and replace *JWT_SECRET_KEY* with your own. For example, you can do:
+```python
+import os
+os.urandom(24)
+```
+
 ##### Run the API
 ```
 $ py ./run.py
