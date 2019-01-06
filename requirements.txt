@@ -8,3 +8,4 @@ flask_marshmallow==0.8.0
 marshmallow-sqlalchemy==0.13.2
 marshmallow-enum==1.4.1
 pyjwt==1.4.2
+PyMySQL==0.9.3
