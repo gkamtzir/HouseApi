@@ -2,7 +2,7 @@
 
 This repo consists of the backend codebase I'm developing for the 3rd deliverable of a 3 part exercice for the course of Databases. This course is part of the Electrical Engineering and Computer Engineering undergraduate program at Aristotle University of Thessaloniki.
 
-The actual API is live on http://83.212.115.201:5000/api/.<br />
+The actual API is live on http://83.212.115.201/api/.<br />
 The documentation is live on http://83.212.115.201/api/documentation.
 
 ## Technical Notes
