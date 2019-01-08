@@ -77,3 +77,23 @@ class PropertySchema(ma.Schema):
     heating_type_id = fields.Integer(required=True)
     door_frame_id = fields.Integer(required=True)
     details = fields.String(required=False)
+
+
+class PropertyWithPriceSchema(ma.Schema):
+    id = fields.Integer(dump_only=True)
+    floor = fields.Integer(required=True)
+    postal_code = fields.String(required=True)
+    street_address = fields.String(required=True)
+    street_number = fields.String(required=False)
+    property_type = EnumField(PropertyTypeEnum)
+    size = fields.Integer(required=True)
+    rooms = fields.Integer(required=False)
+    longitude = fields.Float(required=True)
+    latitude = fields.Float(required=True)
+    energy_certificate = EnumField(EnergyCertificateEnum)
+    city_id = fields.Integer(required=True)
+    supervisor_id = fields.Integer(required=True)
+    heating_type_id = fields.Integer(required=True)
+    door_frame_id = fields.Integer(required=True)
+    details = fields.String(required=False)
+    price = fields.Integer(required=True)
