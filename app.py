@@ -15,6 +15,7 @@ from resources.Property import PropertyResource
 from resources.FavoredBy import FavoredByResource
 from resources.SupervisorComments import SupervisorCommentsResource
 from resources.Login import LoginResource
+from resources.UserFavorites import UserFavoritesResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -34,3 +35,4 @@ api.add_resource(FavoredByResource, "/FavoredBy/<int:property_id>")
 api.add_resource(SupervisorCommentsResource, 
                  "/SupervisorComments/<int:supervisor_id>")
 api.add_resource(LoginResource, "/Login")
+api.add_resource(UserFavoritesResource, "/UserFavorite/<int:user_id>")
