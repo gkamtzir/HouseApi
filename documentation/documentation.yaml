@@ -9,6 +9,11 @@ host: "83.212.115.201"
 basePath: "/api"
 schemes:
 - "http"
+securityDefinitions:
+  BearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
 paths:
   /Property:
     get:
@@ -163,6 +168,8 @@ paths:
     get:
       summary: "Returns all the properties a user has saved as favorite"
       description: "It returns every property a user has saved as favorite in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       parameters:
@@ -176,6 +183,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/PropertyResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /Login:
@@ -556,6 +567,13 @@ definitions:
       status:
         type: "string"
       token:
+        type: "string"
+  UnauthorizedResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      message:
         type: "string"
   SupervisorCommentsResponse:
     type: "object"
