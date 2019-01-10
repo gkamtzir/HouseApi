@@ -16,9 +16,12 @@ class LoginResource(Resource):
                     404
             else:
                 user = user_schema.dump(user).data
+                # Generate token.
+                token = str(encode_auth_token(user["id"]))
+                # Removed token quotes.
+                token = token[2:len(token) - 1]
                 return {"status": "Success",
-                        "token": str(encode_auth_token(user["id"])),
-                        "id": user["id"]}, 200
+                        "token": token}, 200
         except Exception as e:
             print(e)
             return {"status": "Fail", "message": "Try again"}, 500

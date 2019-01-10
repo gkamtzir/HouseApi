@@ -7,12 +7,11 @@ def encode_auth_token(user_id):
     try:
         payload = {
             "exp": datetime.datetime.utcnow() + datetime.timedelta(
-                days=0,
-                seconds=5),
+                days=1,
+                seconds=0),
             "iat": datetime.datetime.utcnow(),
             "sub": user_id
         }
-        print(app.config.get("JWT_SECRET_KEY"))
         return jwt.encode(
             payload,
             app.config.get("JWT_SECRET_KEY"),
@@ -30,3 +29,10 @@ def decode_auth_token(auth_token):
         return "Signature expired. Please log in again."
     except jwt.InvalidTokenError:
         return "Invalid token. Please log in again."
+
+
+def fetch_token(authorization):
+    # Fetching token.
+    token = authorization.split(" ")[1]
+    # Decoding token to get user's id.
+    return decode_auth_token(token)

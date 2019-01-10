@@ -557,9 +557,6 @@ definitions:
         type: "string"
       token:
         type: "string"
-      id:
-        type: "integer"
-        format: "int64"
   SupervisorCommentsResponse:
     type: "object"
     properties:
