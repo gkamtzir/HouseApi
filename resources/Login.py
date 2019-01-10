@@ -17,7 +17,8 @@ class LoginResource(Resource):
             else:
                 user = user_schema.dump(user).data
                 return {"status": "Success",
-                        "token": str(encode_auth_token(user["id"]))}, 200
+                        "token": str(encode_auth_token(user["id"])),
+                        "id": user["id"]}, 200
         except Exception as e:
             print(e)
             return {"status": "Fail", "message": "Try again"}, 500
