@@ -140,6 +140,23 @@ paths:
               $ref: "#/definitions/PropertyActionResponse"
         500:
           description: "Unexpected error"
+  /Login:
+    post:
+      summary: "Logs user or property supervisor in"
+      description: "It logs in every registered user or supervisor"
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: "Email"
+          description: "A JSON object containing the email"
+          schema:
+            $ref: "#/definitions/LoginRequestBody"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/LoginResponse"
   /Search:
     post:
       summary: "Returns properties that match the given filters"
@@ -490,6 +507,21 @@ definitions:
             price:
               type: "integer"
               format: "int64"
+  LoginRequestBody:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+  LoginResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      token:
+        type: "string"
+      id:
+        type: "integer"
+        format: "int64"
 externalDocs:
   description: "Find out more about HouseAPI"
   url: "https://github.com/gkamtzir/HouseApi"
