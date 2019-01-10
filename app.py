@@ -33,7 +33,7 @@ api.add_resource(PropertyActionResource, "/PropertyAction")
 api.add_resource(VisitResource, "/Visit")
 api.add_resource(PropertyResource, "/Property")
 api.add_resource(FavoredByResource, "/FavoredBy/<int:property_id>")
-api.add_resource(SupervisorCommentsResource, 
+api.add_resource(SupervisorCommentsResource,
                  "/SupervisorComments/<int:supervisor_id>")
 api.add_resource(LoginResource, "/Login")
 api.add_resource(UserFavoritesResource, "/UserFavorite/<int:user_id>")

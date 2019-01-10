@@ -18,6 +18,9 @@ class Comment(db.Model):
     comment = db.Column(db.String(120), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
 
+    # Relationships.
+    user = db.relationship("User", backref="comment")
+
     def __init__(self, user_id, supervisor_id, comment, rating):
         self.user_id = user_id
         self.supervisor_id = supervisor_id
@@ -28,6 +31,7 @@ class Comment(db.Model):
 class CommentSchema(ma.Schema):
     id = fields.Integer(dump_only=True)
     user_id = fields.Integer(required=True)
+    user_name = fields.String(required=False)
     supervisor_id = fields.Integer(required=True)
     comment = fields.String(required=True)
     rating = fields.Integer(required=True)
