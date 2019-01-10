@@ -5,7 +5,7 @@ info:
   title: "HouseAPI"
   contact:
     email: "georgekam96@gmail.com"
-host: "83.212.115.201:5000"
+host: "83.212.115.201"
 basePath: "/api"
 schemes:
 - "http"
