@@ -15,7 +15,6 @@ class SearchResource(Resource):
         id = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
-        print(id)
 
         post_data = request.get_json()
 

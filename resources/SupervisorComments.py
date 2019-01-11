@@ -1,7 +1,8 @@
-from flask_restful import Resource, abort
+from flask_restful import Resource, abort, request
 from models.PropertySupervisor import PropertySupervisor
 from models.Comment import Comment, CommentSchema
 from models.User import UserSchema
+from common.Authentication import fetch_token
 
 comment_schema = CommentSchema()
 user_schema = UserSchema()
@@ -9,6 +10,10 @@ user_schema = UserSchema()
 
 class SupervisorCommentsResource(Resource):
     def get(self, supervisor_id):
+        # Authorize user.
+        id = fetch_token(request.headers.get("Authorization"))
+        if id is not None and not isinstance(id, int):
+            abort(401, status="error", message=id)
         supervisor = PropertySupervisor.query.filter_by(id=supervisor_id)\
             .first()
         if supervisor is None:

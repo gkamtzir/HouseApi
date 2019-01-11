@@ -19,6 +19,8 @@ paths:
     get:
       summary: "Returns every property"
       description: "It returns every property registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -32,6 +34,8 @@ paths:
     get:
       summary: "Returns every user"
       description: "It returns every user registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -45,6 +49,8 @@ paths:
     get:
       summary: "Returns supervisor"
       description: "It returns every supervisor registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -58,6 +64,8 @@ paths:
     get:
       summary: "Returns all the available heating types"
       description: "It returns every heating type registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -71,6 +79,8 @@ paths:
     get:
       summary: "Returns all the available door frame types"
       description: "It returns every door frame type registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -84,6 +94,8 @@ paths:
     get:
       summary: "Returns all the available cities"
       description: "It returns every city registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -97,6 +109,8 @@ paths:
     get:
       summary: "Returns all the visits"
       description: "It returns every visit registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -110,6 +124,8 @@ paths:
     get:
       summary: "Returns all the comments"
       description: "It returns every comment registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -123,6 +139,8 @@ paths:
     get:
       summary: "Returns all the 'favorite' entries"
       description: "It returns every 'favorite' entry registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -136,6 +154,8 @@ paths:
     get:
       summary: "Returns all the property actions"
       description: "It returns every property action registered in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       responses:
@@ -149,6 +169,8 @@ paths:
     get:
       summary: "Returns all the comments a supervisor has received"
       description: "It returns every comment a registered supervisor has received in HouseDB"
+      security:
+        - BearerAuth: []
       produces: 
       - "application/json"
       parameters:
@@ -210,6 +232,8 @@ paths:
     post:
       summary: "Returns properties that match the given filters"
       description: "It returns every property registered in HouseDB that matches the given filters"
+      security:
+        - BearerAuth: []
       consumes:
         - application/json
       parameters:
