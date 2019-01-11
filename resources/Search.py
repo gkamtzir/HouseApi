@@ -2,6 +2,7 @@ from flask_restful import Resource, request, abort
 from models.Property import Property,\
     PropertyWithPriceSchema
 from models.PropertyAction import PropertyActionSchema
+from models.City import City
 
 property_with_price_schema = PropertyWithPriceSchema()
 property_action_schema = PropertyActionSchema()
@@ -78,7 +79,13 @@ class SearchResource(Resource):
             abort(400, status="error", message="city must be string")
 
         if city is not None:
-            filters += (Property.city == city, )
+            city_instance = City.query.filter_by(name=city).first()
+            if city_instance is not None:
+                filters += (Property.city_id == city_instance.id, )
+            else:
+                abort(400, status="error",
+                      message=("city {} does not exist in the database"
+                               .format(city)))
 
         action = post_data.get("action")
 
