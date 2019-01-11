@@ -12,6 +12,9 @@ class VisitResource(Resource):
         id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
+        if role == "supervisor":
+            abort(401, status="error",
+                  message="Only users can use this resource")
 
         visits = Visit.query.filter(Visit.user_id == id)
         visits = visits_schema\
