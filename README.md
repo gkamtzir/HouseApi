@@ -22,7 +22,7 @@ $ pip3 install -r requirements.txt
 ```
 
 ##### Database Configuration
-Visit [HouseDB](https://github.com/gkamtzir/HouseDB) repo, download *housedb.sql* and import it on a MariaDB server.
+Visit [HouseDB](https://github.com/gkamtzir/HouseDB) repo, download *housedb.sql* and import it on a MariaDB server. Make sure to modify database's user and password in *config.py* file to match your credentials.
 
 ##### Code Modifications
 Rename *config.dist.py* file to *config.py* and replace *JWT_SECRET_KEY* with your own. For example, you can do:
