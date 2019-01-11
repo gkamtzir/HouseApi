@@ -28,6 +28,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/PropertyResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /User:
@@ -43,6 +47,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/UserResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /PropertySupervisor:
@@ -58,6 +66,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/PropertySupervisorResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /HeatingType:
@@ -73,6 +85,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/HeatingTypeResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /DoorFrameType:
@@ -88,6 +104,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/DoorFrameTypeResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /City:
@@ -103,6 +123,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/CityResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /Visit:
@@ -118,6 +142,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/VisitResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /Comment:
@@ -133,6 +161,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/CommentResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /Favorite:
@@ -148,6 +180,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/FavoriteResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /PropertyAction:
@@ -163,6 +199,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/PropertyActionResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /SupervisorComments/{supervisor_id}:
@@ -184,6 +224,10 @@ paths:
           description: "Successful operation"
           schema:
               $ref: "#/definitions/SupervisorCommentsResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
   /UserFavorite:
@@ -222,6 +266,8 @@ paths:
           description: "Successful operation"
           schema:
             $ref: "#/definitions/LoginResponse"
+        500:
+          description: "Unexpected error"
   /Search:
     post:
       summary: "Returns properties that match the given filters"
@@ -241,6 +287,12 @@ paths:
           description: "Successful operation"
           schema:
             $ref: "#/definitions/PropertyWithPriceResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
+        500:
+          description: "Unexpected error"
 definitions:
   PropertyResponse:
     type: "object"
