@@ -7,15 +7,16 @@ properties_schema = PropertySchema(many=True)
 
 
 class UserFavoritesResource(Resource):
-    def get(self, user_id):
+    def get(self):
         # Authorize user.
         id = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
-        user = User.query.filter_by(id=user_id).first()
+
+        user = User.query.filter_by(id=id).first()
         if user is None:
             abort(404, message="User with id = {} doesn't exist"
-                  .format(user_id))
+                  .format(id))
         properties = user.properties
         properties = properties_schema.dump(properties).data
         return {"status": "success", "data": properties}, 200

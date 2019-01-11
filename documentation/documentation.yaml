@@ -107,8 +107,8 @@ paths:
           description: "Unexpected error"
   /Visit:
     get:
-      summary: "Returns all the visits"
-      description: "It returns every visit registered in HouseDB"
+      summary: "Returns user's visits"
+      description: "It returns every visit registered for a user in HouseDB"
       security:
         - BearerAuth: []
       produces: 
@@ -186,7 +186,7 @@ paths:
               $ref: "#/definitions/SupervisorCommentsResponse"
         500:
           description: "Unexpected error"
-  /UserFavorite/{user_id}:
+  /UserFavorite:
     get:
       summary: "Returns all the properties a user has saved as favorite"
       description: "It returns every property a user has saved as favorite in HouseDB"
@@ -194,12 +194,6 @@ paths:
         - BearerAuth: []
       produces: 
       - "application/json"
-      parameters:
-        - in: path
-          name: "user_id"
-          type: "integer"
-          required: true
-          description: "User's id"
       responses:
         200:
           description: "Successful operation"
