@@ -556,6 +556,8 @@ definitions:
             price:
               type: "integer"
               format: "int64"
+            favorite:
+              type: boolean
   LoginRequestBody:
     type: "object"
     properties:

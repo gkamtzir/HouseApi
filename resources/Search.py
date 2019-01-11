@@ -3,6 +3,7 @@ from models.Property import Property,\
     PropertyWithPriceSchema
 from models.PropertyAction import PropertyActionSchema
 from models.City import City
+from common.Authentication import fetch_token
 
 property_with_price_schema = PropertyWithPriceSchema()
 property_action_schema = PropertyActionSchema()
@@ -10,6 +11,12 @@ property_action_schema = PropertyActionSchema()
 
 class SearchResource(Resource):
     def post(self):
+        # Authorize user.
+        id = fetch_token(request.headers.get("Authorization"))
+        if id is not None and not isinstance(id, int):
+            abort(401, status="error", message=id)
+        print(id)
+
         post_data = request.get_json()
 
         # Tuple for dynamically storing filters.
@@ -104,14 +111,20 @@ class SearchResource(Resource):
         # requirements are met.
         result_properties = []
         for property in properties:
+            favorite = False
             for property_action in property.actions:
                 property_action = property_action_schema\
                     .dump(property_action).data
                 if property_action["action"] == action:
-                    # Adding the price to property.
+                    # Check if property is favored by user.
+                    for user in property.favored_by:
+                        if id == user.id:
+                            favorite = True
+                            break
+                    # Adding the price and favorite fields to property.
                     property = property_with_price_schema.dump(property).data
                     property["price"] = property_action["price"]
-
+                    property["favorite"] = favorite
                     if min_price is not None and max_price is not None:
                         if property_action["price"] >= min_price \
                                 and property_action["price"] <= max_price:

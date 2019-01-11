@@ -97,3 +97,4 @@ class PropertyWithPriceSchema(ma.Schema):
     door_frame_id = fields.Integer(required=True)
     details = fields.String(required=False)
     price = fields.Integer(required=True)
+    favorite = fields.Boolean(required=True)
