@@ -3,14 +3,15 @@ import jwt
 import datetime
 
 
-def encode_auth_token(user_id):
+def encode_auth_token(user_id, role):
     try:
         payload = {
             "exp": datetime.datetime.utcnow() + datetime.timedelta(
                 days=1,
                 seconds=0),
             "iat": datetime.datetime.utcnow(),
-            "sub": user_id
+            "sub": user_id,
+            "role": role
         }
         return jwt.encode(
             payload,
@@ -24,7 +25,7 @@ def encode_auth_token(user_id):
 def decode_auth_token(auth_token):
     try:
         payload = jwt.decode(auth_token, app.config.get("JWT_SECRET_KEY"))
-        return payload["sub"]
+        return payload["sub"], payload["role"]
     except jwt.ExpiredSignatureError:
         return "Signature expired. Please log in again."
     except jwt.InvalidTokenError:

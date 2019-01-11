@@ -9,7 +9,9 @@ cities_schema = CitySchema(many=True)
 class CityResource(Resource):
     def get(self):
         # Authorize user.
-        id = fetch_token(request.headers.get("Authorization"))
+        id, role = fetch_token(request.headers.get("Authorization"))
+        print(id)
+        print(role)
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
         cities = City.query.all()

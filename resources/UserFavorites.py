@@ -9,9 +9,12 @@ properties_schema = PropertySchema(many=True)
 class UserFavoritesResource(Resource):
     def get(self):
         # Authorize user.
-        id = fetch_token(request.headers.get("Authorization"))
+        id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
+        if role == "supervisor":
+            abort(401, status="error",
+                  message="Only users can use this resource")
 
         user = User.query.filter_by(id=id).first()
         if user is None:

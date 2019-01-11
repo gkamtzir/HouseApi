@@ -11,7 +11,7 @@ user_schema = UserSchema()
 class SupervisorCommentsResource(Resource):
     def get(self, supervisor_id):
         # Authorize user.
-        id = fetch_token(request.headers.get("Authorization"))
+        id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
         supervisor = PropertySupervisor.query.filter_by(id=supervisor_id)\

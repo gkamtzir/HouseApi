@@ -9,7 +9,7 @@ heating_types_schema = HeatingTypeSchema(many=True)
 class HeatingTypeResource(Resource):
     def get(self):
         # Authorize user.
-        id = fetch_token(request.headers.get("Authorization"))
+        id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
         heating_types = HeatingType.query.all()

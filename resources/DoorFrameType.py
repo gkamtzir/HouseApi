@@ -9,7 +9,7 @@ door_frame_types_schema = DoorFrameTypeSchema(many=True)
 class DoorFrameTypeResource(Resource):
     def get(self):
         # Authorize user.
-        id = fetch_token(request.headers.get("Authorization"))
+        id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
         door_frame_types = DoorFrameType.query.all()

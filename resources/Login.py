@@ -17,7 +17,7 @@ class LoginResource(Resource):
             else:
                 user = user_schema.dump(user).data
                 # Generate token.
-                token = str(encode_auth_token(user["id"]))
+                token = str(encode_auth_token(user["id"], "user"))
                 # Removed token quotes.
                 token = token[2:len(token) - 1]
                 return {"status": "Success",
