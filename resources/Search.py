@@ -15,6 +15,9 @@ class SearchResource(Resource):
         id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
+        if id is None:
+            abort(401, status="error",
+                  message="You have to log in to access this resource")
 
         post_data = request.get_json()
 
