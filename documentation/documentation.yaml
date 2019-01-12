@@ -356,6 +356,16 @@ definitions:
             id:
               type: "integer"
               format: "int64"
+            action:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  price:
+                    type: "integer"
+                    format: "int64"
+                  action:
+                    type: "string"
             street_number:
               type: "string"
             heating_type_id:
@@ -632,6 +642,16 @@ definitions:
             id:
               type: "integer"
               format: "int64"
+            action:
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  price:
+                    type: "integer"
+                    format: "int64"
+                  action:
+                    type: "string"
             street_number:
               type: "string"
             heating_type_id:

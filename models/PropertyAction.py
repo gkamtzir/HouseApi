@@ -27,3 +27,8 @@ class PropertyActionSchema(ma.Schema):
     property_id = fields.Integer(dump_only=True)
     action = EnumField(PropertyActionEnum)
     price = fields.Integer(required=True)
+
+
+class PropertyActionShortSchema(ma.Schema):
+    action = EnumField(PropertyActionEnum)
+    price = fields.Integer(required=True)

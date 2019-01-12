@@ -3,6 +3,7 @@ from flask_marshmallow import Marshmallow
 from marshmallow_enum import EnumField
 from common.Enumerations import PropertyTypeEnum, EnergyCertificateEnum
 from models.Shared import db
+from models.PropertyAction import PropertyActionShortSchema
 
 ma = Marshmallow()
 
@@ -62,6 +63,7 @@ class Property(db.Model):
 
 class PropertySchema(ma.Schema):
     id = fields.Integer(dump_only=True)
+    actions = fields.List(fields.Nested(PropertyActionShortSchema))
     floor = fields.Integer(required=True)
     postal_code = fields.String(required=True)
     street_address = fields.String(required=True)
@@ -81,6 +83,7 @@ class PropertySchema(ma.Schema):
 
 class PropertyWithPriceSchema(ma.Schema):
     id = fields.Integer(dump_only=True)
+    actions = fields.List(fields.Nested(PropertyActionShortSchema))
     floor = fields.Integer(required=True)
     postal_code = fields.String(required=True)
     street_address = fields.String(required=True)
