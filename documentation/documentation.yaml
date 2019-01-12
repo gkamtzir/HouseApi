@@ -34,6 +34,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /User:
     get:
       summary: "Returns every user"
@@ -53,6 +55,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /PropertySupervisor:
     get:
       summary: "Returns supervisor"
@@ -72,6 +76,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /HeatingType:
     get:
       summary: "Returns all the available heating types"
@@ -91,6 +97,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /DoorFrameType:
     get:
       summary: "Returns all the available door frame types"
@@ -110,6 +118,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /City:
     get:
       summary: "Returns all the available cities"
@@ -129,6 +139,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Visit:
     get:
       summary: "Returns user's visits"
@@ -148,6 +160,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Comment:
     get:
       summary: "Returns all the comments"
@@ -167,6 +181,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Favorite:
     get:
       summary: "Returns all the 'favorite' entries"
@@ -186,6 +202,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /PropertyAction:
     get:
       summary: "Returns all the property actions"
@@ -205,6 +223,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /SupervisorComments/{supervisor_id}:
     get:
       summary: "Returns all the comments a supervisor has received"
@@ -230,6 +250,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /UserFavorite:
     get:
       summary: "Returns all the properties a user has saved as favorite"
@@ -249,6 +271,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Login:
     post:
       summary: "Logs user in"
@@ -268,6 +292,8 @@ paths:
             $ref: "#/definitions/LoginResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /LoginSupervisor:
     post:
       summary: "Logs property supervisor in"
@@ -287,6 +313,8 @@ paths:
             $ref: "#/definitions/LoginResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Search:
     post:
       summary: "Returns properties that match the given filters"
@@ -312,6 +340,8 @@ paths:
             $ref: "#/definitions/UnauthorizedResponse"
         500:
           description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
 definitions:
   PropertyResponse:
     type: "object"
@@ -660,6 +690,13 @@ definitions:
       token:
         type: "string"
   UnauthorizedResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      message:
+        type: "string"
+  ServerErrorResponse:
     type: "object"
     properties:
       status:
