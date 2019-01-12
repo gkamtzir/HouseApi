@@ -342,6 +342,33 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/ServerErrorResponse"
+  /AddProperty:
+    post:
+      summary: "Adds a new property"
+      description: "it adds a new property in HouseDB"
+      security:
+        - BearerAuth: []
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: "Attributes"
+          description: "A JSON object containing the property's attributes"
+          schema:
+            $ref: "#/definitions/AddPropertyRequestBody"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/AddPropertyResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
+        500:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
 definitions:
   PropertyResponse:
     type: "object"
@@ -723,6 +750,13 @@ definitions:
         type: "string"
       message:
         type: "string"
+  AddPropertyResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      message:
+        type: "string"
   SupervisorCommentsResponse:
     type: "object"
     properties:
@@ -749,6 +783,60 @@ definitions:
               format: "int64"
             user_name:
               type: "string"
+  AddPropertyRequestBody:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      data:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            action:
+              type: "string"
+              enum: [Sale, Rent]
+            street_number:
+              type: "string"
+            heating_type_id:
+              type: "number"
+              format: "int64"
+            city_id:
+              type: "number"
+              format: "int64"
+            door_frame_id:
+              type: "number"
+              format: "int64"
+            property_type:
+              type: "string"
+              enum: [House, Commercial Space]
+            floor:
+              type: "number"
+              format: "int64"
+            latitude:
+              type: "number"
+              format: "double"
+            longitude:
+              type: "number"
+              format: "double"
+            size:
+              type: "number"
+              format: "int64"
+            rooms:
+              type: "number"
+              format: "int64"
+            street_address:
+              type: "string"
+            postal_code:
+              type: "string"
+            details:
+              type: "string"
+            energy_certificate:
+              type: "string"
+              enum: [A+, A, B, C, D, E, F, G, H]
+            price:
+              type: "integer"
+              format: "int64"
 externalDocs:
   description: "Find out more about HouseAPI"
   url: "https://github.com/gkamtzir/HouseApi"
