@@ -12,7 +12,10 @@ class PropertyResource(Resource):
         id, role = fetch_token(request.headers.get("Authorization"))
         if id is not None and not isinstance(id, int):
             abort(401, status="error", message=id)
-        properties = Property.query.all()
+        if role == "user":
+            abort(401, status="error",
+                  message="Only supervisors can access this resource.")
+        properties = Property.query.filter(Property.supervisor_id == id)
         properties = properties_schema\
             .dump(properties).data
         return {"status": "success", "data": properties}, 200

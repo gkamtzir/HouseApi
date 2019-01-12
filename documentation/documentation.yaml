@@ -17,8 +17,8 @@ securityDefinitions:
 paths:
   /Property:
     get:
-      summary: "Returns every property"
-      description: "It returns every property registered in HouseDB"
+      summary: "Returns registered supervisor's properties"
+      description: "It returns every property a registered supervisor has in HouseDB"
       security:
         - BearerAuth: []
       produces: 
