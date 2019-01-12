@@ -251,8 +251,27 @@ paths:
           description: "Unexpected error"
   /Login:
     post:
-      summary: "Logs user or property supervisor in"
-      description: "It logs in every registered user or supervisor"
+      summary: "Logs user in"
+      description: "It logs in every registered user"
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: "Email"
+          description: "A JSON object containing the email"
+          schema:
+            $ref: "#/definitions/LoginRequestBody"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/LoginResponse"
+        500:
+          description: "Unexpected error"
+  /LoginSupervisor:
+    post:
+      summary: "Logs property supervisor in"
+      description: "It logs in every registered supervisor"
       consumes:
         - application/json
       parameters:
