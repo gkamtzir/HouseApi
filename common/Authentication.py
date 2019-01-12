@@ -33,6 +33,8 @@ def decode_auth_token(auth_token):
 
 
 def fetch_token(authorization):
+    if authorization is None:
+        return None, None
     # Fetching token.
     token = authorization.split(" ")[1]
     # Decoding token to get user's id.
