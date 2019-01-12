@@ -27,9 +27,9 @@ def decode_auth_token(auth_token):
         payload = jwt.decode(auth_token, app.config.get("JWT_SECRET_KEY"))
         return payload["sub"], payload["role"]
     except jwt.ExpiredSignatureError:
-        return "Signature expired. Please log in again."
+        return "Signature expired. Please log in again.", None
     except jwt.InvalidTokenError:
-        return "Invalid token. Please log in again."
+        return "Invalid token. Please log in again.", None
 
 
 def fetch_token(authorization):
