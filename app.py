@@ -22,6 +22,7 @@ from resources.LoginSupervisor import LoginSupervisorResource
 from resources.AddProperty import AddPropertyResource
 from resources.SupervisorCommentsReceived \
     import SupervisorCommentsReceivedResource
+from resources.RemoveFavorite import RemoveFavoriteResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -43,8 +44,9 @@ api.add_resource(SupervisorCommentsResource,
 api.add_resource(LoginResource, "/Login")
 api.add_resource(UserFavoritesResource, "/UserFavorite/")
 api.add_resource(SearchResource, "/Search")
-api.add_resource(AddFavoriteResource, "/AddFavorite/<int:property_id>")
+api.add_resource(AddFavoriteResource, "/AddFavorite")
 api.add_resource(LoginSupervisorResource, "/LoginSupervisor")
 api.add_resource(AddPropertyResource, "/AddProperty")
 api.add_resource(SupervisorCommentsReceivedResource,
                  "/SupervisorCommentsReceived")
+api.add_resource(RemoveFavoriteResource, "/RemoveFavorite")

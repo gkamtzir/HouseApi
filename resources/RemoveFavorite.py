@@ -8,7 +8,7 @@ from common.Authentication import fetch_token
 user_schema = UserSchema()
 
 
-class AddFavoriteResource(Resource):
+class RemoveFavoriteResource(Resource):
     def post(self):
         try:
             # Authorize user.
@@ -39,13 +39,23 @@ class AddFavoriteResource(Resource):
                 abort(400, status="error",
                       message="property_id must be positive")
 
-            # Creating the new instance.
-            new_favorite = Favorite(1, property_id)
-            # Adding the new instance to database.
-            db.session.add(new_favorite)
+            favorite = Favorite.query\
+                               .filter(
+                                    Favorite.user_id == id,
+                                    Favorite.property_id == property_id
+                                ).first()
+
+            if favorite is None:
+                abort(400, status="error",
+                      message=("Please make sure that the"
+                               " property exists and that user has already"
+                               " saved that property as favorite."))
+
+            # Deleting the instance from database.
+            db.session.delete(favorite)
             # Commit changes.
             db.session.commit()
-            return {"status": "success", "message": ("Favorite added"
+            return {"status": "success", "message": ("Favorite deleted"
                     " successfully")}, 200
         except IntegrityError:
             # Rollback changes.

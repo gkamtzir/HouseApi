@@ -294,6 +294,52 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/ServerErrorResponse"
+  /AddFavorite:
+    post:
+      summary: "Adds a property to user's favorite list"
+      description: "It adds a property to user's favorite list in HouseDB"
+      security:
+        - BearerAuth: []
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: "PropertyId"
+          description: "A JSON object containing the property id"
+          schema:
+            $ref: "#/definitions/AddRemoveFavoriteRequestBody"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/LoginResponse"
+        500:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
+  /RemoveFavorite:
+    post:
+      summary: "Removes a property to user's favorite list"
+      description: "It removes a property to user's favorite list in HouseDB"
+      security:
+        - BearerAuth: []
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: "PropertyId"
+          description: "A JSON object containing the property id"
+          schema:
+            $ref: "#/definitions/AddRemoveFavoriteRequestBody"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/LoginResponse"
+        500:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /Login:
     post:
       summary: "Logs user in"
@@ -774,6 +820,12 @@ definitions:
         type: "string"
       message:
         type: "string"
+  AddRemoveFavoriteRequestBody:
+    type: "object"
+    properties:
+      property_id:
+        type: "integer"
+        format: "int64"
   SupervisorCommentsResponse:
     type: "object"
     properties:
