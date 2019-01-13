@@ -40,35 +40,56 @@ class AddPropertyResource(Resource):
             if size < 0:
                 abort(400, status="error", message="size must be positive")
 
-            # Checking if action exists.
-            action = post_data.get("action")
-            if action is None:
-                abort(400, status="error", message="action is required")
+            # Checking if actions exist.
+            actions = post_data.get("actions")
+            print(actions)
+            if actions is None:
+                abort(400, status="error", message="actions are required")
 
-            # Checking if action is instance of the str class.
-            if not isinstance(action, str):
-                abort(400, status="error", message="action must be string")
+            # Checking if actions is instance of the list class.
+            if not isinstance(actions, list):
+                abort(400, status="error", message="actions must be list")
+
+            # Checking if actions has appropriate length.
+            if len(actions) == 0 or len(actions) > 2:
+                abort(400, status="error",
+                      message="actions must be have at most 2 items")
 
             # Checking if action has appropriate value.
             values = [item.name for item in PropertyActionEnum]
 
-            if action not in values:
-                abort(400, status="error",
-                      message=("action must have one"
-                               " of the following values: {}".format(values)))
+            action_used = []
 
-            # Checking if price exists.
-            price = post_data.get("price")
-            if price is None:
-                abort(400, status="error", message="price is required")
+            for action in actions:
+                # Checking if action exists.
+                if "action" not in action:
+                    abort(400, status="error", message="action is required")
+                if action["action"] not in values:
+                    abort(400, status="error",
+                          message=("action must have one"
+                                   " of the following values: {}"
+                                   .format(values)))
 
-            # Checking if price is instance of the int class.
-            if not isinstance(price, int):
-                abort(400, status="error", message="price must be integer")
+                # Checking if action has already been used.
+                if action["action"] in action_used:
+                    abort(400, status="error",
+                          message="duplicate action {}"
+                          .format(action["action"]))
 
-            # Checking if price is positive.
-            if price < 0:
-                abort(400, status="error", message="price must be positive")
+                action_used.append(action["action"])
+
+                # Checking if price exists.
+                if "price" not in action:
+                    abort(400, status="error", message="price is required")
+
+                # Checking if price is instance of the int class.
+                if not isinstance(action["price"], int):
+                    abort(400, status="error", message="price must be integer")
+
+                # Checking if price is positive.
+                if action["price"] < 0:
+                    abort(400, status="error",
+                          message="price must be positive")
 
             # Checking if floor exists.
             floor = post_data.get("floor")
@@ -285,13 +306,15 @@ class AddPropertyResource(Resource):
             db.session.commit()
 
             # Creating PropertyAction instance.
-            property_action = PropertyAction(
-                property_id=property.id,
-                action=action,
-                price=price)
+            for action in actions:
+                property_action = PropertyAction(
+                    property_id=property.id,
+                    action=action["action"],
+                    price=action["price"])
 
-            # Saving PropertyAction instance.
-            db.session.add(property_action)
+                # Saving PropertyAction instance.
+                db.session.add(property_action)
+
             db.session.commit()
 
             return {"status": "success",
