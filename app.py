@@ -20,6 +20,8 @@ from resources.Search import SearchResource
 from resources.AddFavorite import AddFavoriteResource
 from resources.LoginSupervisor import LoginSupervisorResource
 from resources.AddProperty import AddPropertyResource
+from resources.SupervisorCommentsReceived \
+    import SupervisorCommentsReceivedResource
 
 api_bp = Blueprint("api", __name__)
 api = Api(api_bp)
@@ -44,3 +46,5 @@ api.add_resource(SearchResource, "/Search")
 api.add_resource(AddFavoriteResource, "/AddFavorite/<int:property_id>")
 api.add_resource(LoginSupervisorResource, "/LoginSupervisor")
 api.add_resource(AddPropertyResource, "/AddProperty")
+api.add_resource(SupervisorCommentsReceivedResource,
+                 "/SupervisorCommentsReceived")

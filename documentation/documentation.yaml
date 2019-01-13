@@ -252,6 +252,27 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/ServerErrorResponse"
+  /SupervisorCommentsReceived:
+    get:
+      summary: "Returns all the comments the registered supervisor has received"
+      description: "It returns every comment the registered supervisor has received in HouseDB"
+      security:
+        - BearerAuth: []
+      produces: 
+      - "application/json"
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+              $ref: "#/definitions/SupervisorCommentsResponse"
+        401:
+          description: "Unauthorized user"
+          schema:
+            $ref: "#/definitions/UnauthorizedResponse"
+        500:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/ServerErrorResponse"
   /UserFavorite:
     get:
       summary: "Returns all the properties a user has saved as favorite"
