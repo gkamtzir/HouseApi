@@ -42,7 +42,6 @@ class AddPropertyResource(Resource):
 
             # Checking if actions exist.
             actions = post_data.get("actions")
-            print(actions)
             if actions is None:
                 abort(400, status="error", message="actions are required")
 

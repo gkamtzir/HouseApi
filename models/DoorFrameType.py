@@ -12,7 +12,7 @@ class DoorFrameType(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(25), nullable=False)
     glass_type = db.Column(db.Enum(GlassTypeEnum), nullable=False)
-    screen = db.Column(db.Binary(1), nullable=False)
+    screen = db.Column(db.Boolean, nullable=False)
 
     # Relationships
     properties = db.relationship("Property", backref="door_frame_type")
