@@ -38,8 +38,8 @@ paths:
             $ref: "#/definitions/ServerErrorResponse"
   /User:
     get:
-      summary: "Returns every user"
-      description: "It returns every user registered in HouseDB"
+      summary: "Returns registered user"
+      description: "It returns the user currently registered in HouseDB"
       security:
         - BearerAuth: []
       produces: 
@@ -59,8 +59,8 @@ paths:
             $ref: "#/definitions/ServerErrorResponse"
   /PropertySupervisor:
     get:
-      summary: "Returns supervisor"
-      description: "It returns every supervisor registered in HouseDB"
+      summary: "Returns currently registeredsupervisor"
+      description: "It returns the supervisor currently registered in HouseDB"
       security:
         - BearerAuth: []
       produces: 
@@ -439,44 +439,40 @@ definitions:
       status:
         type: "string"
       data:
-        type: "array"
-        items:
-          type: "object"
-          properties:
-            id:
-              type: "integer"
-              format: "int64"
-            name:
-              type: "string"
-            contact_email:
-              type: "string"
-            contact_number:
-              type: "string"
+        type: "object"
+        properties:
+          id:
+            type: "integer"
+            format: "int64"
+          name:
+            type: "string"
+          contact_email:
+            type: "string"
+          contact_number:
+            type: "string"
   PropertySupervisorResponse:
     type: "object"
     properties:
       status:
         type: "string"
       data:
-        type: "array"
-        items:
-          type: "object"
-          properties:
-            id:
-              type: "integer"
-              format: "int64"
-            name:
-              type: "string"
-            address:
-              type: "string"
-            website:
-              type: "string"
-            contact_name:
-              type: "string"
-            contact_email:
-              type: "string"
-            contact_number:
-              type: "string"
+        type: "object"
+        properties:
+          id:
+            type: "integer"
+            format: "int64"
+          name:
+            type: "string"
+          address:
+            type: "string"
+          website:
+            type: "string"
+          contact_name:
+            type: "string"
+          contact_email:
+            type: "string"
+          contact_number:
+            type: "string"
   HeatingTypeResponse:
     type: "object"
     properties:

@@ -3,7 +3,7 @@ from models.PropertySupervisor import PropertySupervisor,\
     PropertySupervisorSchema
 from common.Authentication import fetch_token
 
-property_supervisors_schema = PropertySupervisorSchema(many=True)
+property_supervisor_schema = PropertySupervisorSchema()
 
 
 class PropertySupervisorResource(Resource):
@@ -15,7 +15,11 @@ class PropertySupervisorResource(Resource):
         if id is None:
             abort(401, status="error",
                   message="You have to log in to access this resource")
-        property_supervisors = PropertySupervisor.query.all()
-        property_supervisors = property_supervisors_schema\
-            .dump(property_supervisors).data
-        return {"status": "success", "data": property_supervisors}, 200
+        if role == "user":
+            abort(401, status="error",
+                  message="Only supervisors can use this resource")
+
+        property_supervisor = PropertySupervisor.query.filter_by(id=id).first()
+        property_supervisor = property_supervisor_schema\
+            .dump(property_supervisor).data
+        return {"status": "success", "data": property_supervisor}, 200
