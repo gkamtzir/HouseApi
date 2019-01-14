@@ -20,7 +20,7 @@ class LoginResource(Resource):
                 token = str(encode_auth_token(user["id"], "user"))
                 # Removed token quotes.
                 token = token[2:len(token) - 1]
-                return {"status": "Success",
+                return {"status": "success",
                         "token": token}, 200
         except Exception as e:
             print(e)
