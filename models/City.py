@@ -36,3 +36,9 @@ class CitySchema(ma.Schema):
     average_temp = fields.Float(required=True)
     average_humidity = fields.Integer(required=True)
     average_precip = fields.Float(required=True)
+
+
+class CityShortSchema(ma.Schema):
+    id = fields.Integer(dump_only=True)
+    name = fields.String(required=True)
+    country_name = fields.String(required=True)

@@ -466,9 +466,16 @@ definitions:
             heating_type_id:
               type: "number"
               format: "int64"
-            city_id:
-              type: "number"
-              format: "int64"
+            city:
+              type: "object"
+              properties:
+                id:
+                  type: "integer"
+                  format: "int64"
+                name:
+                  type: "string"
+                country_name:
+                  type: "string"
             door_frame_id:
               type: "number"
               format: "int64"
@@ -647,9 +654,16 @@ definitions:
                 heating_type_id:
                   type: "number"
                   format: "int64"
-                city_id:
-                  type: "number"
-                  format: "int64"
+                city:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "integer"
+                      format: "int64"
+                    name:
+                      type: "string"
+                    country_name:
+                      type: "string"
                 door_frame_id:
                   type: "number"
                   format: "int64"
@@ -803,9 +817,16 @@ definitions:
             heating_type_id:
               type: "number"
               format: "int64"
-            city_id:
-              type: "number"
-              format: "int64"
+            city:
+              type: "object"
+              properties:
+                id:
+                  type: "integer"
+                  format: "int64"
+                name:
+                  type: "string"
+                country_name:
+                  type: "string"
             door_frame_id:
               type: "number"
               format: "int64"

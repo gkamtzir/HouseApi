@@ -4,6 +4,7 @@ from marshmallow_enum import EnumField
 from common.Enumerations import PropertyTypeEnum, EnergyCertificateEnum
 from models.Shared import db
 from models.PropertyAction import PropertyActionShortSchema
+from models.City import CityShortSchema
 
 ma = Marshmallow()
 
@@ -74,11 +75,11 @@ class PropertySchema(ma.Schema):
     longitude = fields.Float(required=True)
     latitude = fields.Float(required=True)
     energy_certificate = EnumField(EnergyCertificateEnum)
-    city_id = fields.Integer(required=True)
     supervisor_id = fields.Integer(required=True)
     heating_type_id = fields.Integer(required=True)
     door_frame_id = fields.Integer(required=True)
     details = fields.String(required=False)
+    city = fields.Nested(CityShortSchema, required=True)
 
 
 class PropertyWithPriceSchema(ma.Schema):
@@ -94,10 +95,10 @@ class PropertyWithPriceSchema(ma.Schema):
     longitude = fields.Float(required=True)
     latitude = fields.Float(required=True)
     energy_certificate = EnumField(EnergyCertificateEnum)
-    city_id = fields.Integer(required=True)
     supervisor_id = fields.Integer(required=True)
     heating_type_id = fields.Integer(required=True)
     door_frame_id = fields.Integer(required=True)
     details = fields.String(required=False)
     price = fields.Integer(required=True)
     favorite = fields.Boolean(required=True)
+    city = fields.Nested(CityShortSchema, required=True)
