@@ -40,7 +40,7 @@ class AddFavoriteResource(Resource):
                       message="property_id must be positive")
 
             # Creating the new instance.
-            new_favorite = Favorite(1, property_id)
+            new_favorite = Favorite(id, property_id)
             # Adding the new instance to database.
             db.session.add(new_favorite)
             # Commit changes.
