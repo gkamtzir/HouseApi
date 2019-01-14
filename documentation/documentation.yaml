@@ -461,7 +461,8 @@ definitions:
                   action:
                     type: "string"
             street_number:
-              type: "string"
+              type: "integer"
+              format: "int64"
             heating_type_id:
               type: "number"
               format: "int64"
@@ -619,14 +620,68 @@ definitions:
             user_id:
               type: "integer"
               format: "int64"
-            property_id:
-              type: "integer"
-              format: "int64"
             status:
               type: "string"
               enum: [Pending Verification, Scheduled, Canceled, Completed, Failed]
             visit_date:
               type: "string"
+            property:
+              type: "object"
+              properties:
+                id:
+                  type: "integer"
+                  format: "int64"
+                actions:
+                  type: "array"
+                  items:
+                    type: "object"
+                    properties:
+                      price:
+                        type: "integer"
+                        format: "int64"
+                      action:
+                        type: "string"
+                street_number:
+                  type: "integer"
+                  format: "int64"
+                heating_type_id:
+                  type: "number"
+                  format: "int64"
+                city_id:
+                  type: "number"
+                  format: "int64"
+                door_frame_id:
+                  type: "number"
+                  format: "int64"
+                supervisor_id:
+                  type: "number"
+                  format: "int64"
+                property_type:
+                  type: "string"
+                floor:
+                  type: "number"
+                  format: "int64"
+                latitude:
+                  type: "number"
+                  format: "double"
+                longitude:
+                  type: "number"
+                  format: "double"
+                size:
+                  type: "number"
+                  format: "int64"
+                rooms:
+                  type: "number"
+                  format: "int64"
+                street_address:
+                  type: "string"
+                postal_code:
+                  type: "string"
+                details:
+                  type: "string"
+                energy_certificate:
+                  type: "string"
+                  enum: [A+, A, B, C, D, E, F, G, H]
   CommentResponse:
     type: "object"
     properties:
@@ -743,7 +798,8 @@ definitions:
                   action:
                     type: "string"
             street_number:
-              type: "string"
+              type: "integer"
+              format: "int64"
             heating_type_id:
               type: "number"
               format: "int64"
@@ -867,7 +923,8 @@ definitions:
               type: "integer"
               format: "int64"
       street_number:
-        type: "string"
+        type: "integer"
+        format: "int64"
       heating_type_id:
         type: "number"
         format: "int64"
