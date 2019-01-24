@@ -9,7 +9,7 @@ user_schema = UserSchema()
 
 
 class RemoveFavoriteResource(Resource):
-    def post(self):
+    def delete(self):
         try:
             # Authorize user.
             id, role = fetch_token(request.headers.get("Authorization"))
